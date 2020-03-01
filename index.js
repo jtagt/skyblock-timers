@@ -73,7 +73,7 @@ let timers = [];
 
 const darkAuction = "671896345619202109";
 const bankInterest = "671922128785899520";
-const spookyFestival = "674060239103983617";
+const spookyFestival = "683552509289431061";
 const jerryWorkshopEvent = "674060173723041842";
 const zoo = "683535544596037639";
 const newYear = "683535553840283648";
