@@ -5,6 +5,9 @@ const schedule = require('node-schedule');
 
 const fetch = require('node-fetch');
 
+const TARGET_GUILD = "652148034448261150";
+const TARGET_CHANNEL = "683539143808122940";
+
 client.on('ready', () => {
     console.log('Bot is ready.');
 });
@@ -65,9 +68,6 @@ const getJerryEvent = async () => {
     return { estimate: data.estimate, name: "Jerry Event" };
 }
 
-const TARGET_GUILD = "652148034448261150";
-const TARGET_CHANNEL = "683539143808122940";
-
 const times = new Map();
 let timers = [];
 
@@ -122,7 +122,7 @@ const setupTimer = (name, key, timestamp) => {
                 break;
         }
 
-        client.guilds.get(TARGET_GUILD).channels.get(TARGET_CHANNEL).send(`<@${role}>`);
+        client.guilds.get(TARGET_GUILD).channels.get(TARGET_CHANNEL).send(`<@&${role}>`);
         client.guilds.get(TARGET_GUILD).channels.get(TARGET_CHANNEL).send(embed);
     });
 }
