@@ -142,6 +142,6 @@ const getAllTimers = async () => {
 }
 
 getAllTimers();
-setInterval(() => getAllTimers(), 60000);
+setInterval(() => getAllTimers(), 600000);
 
 client.login('token');
