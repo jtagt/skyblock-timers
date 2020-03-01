@@ -71,6 +71,15 @@ const TARGET_CHANNEL = "683539143808122940";
 const times = new Map();
 let timers = [];
 
+const darkAuction = "671896345619202109";
+const bankInterest = "671922128785899520";
+const spookyFestival = "674060239103983617";
+const jerryWorkshopEvent = "674060173723041842";
+const zoo = "683535544596037639";
+const newYear = "683535553840283648";
+const winterEvent = "683545303798120589";
+const magmaBoss = "683545449780609044";
+
 const setupTimer = (name, key, timestamp) => {
     if (timers.includes(key)) return;
     timers.push(key);
@@ -81,9 +90,39 @@ const setupTimer = (name, key, timestamp) => {
         timers = timers.filter(t => t !== key);
 
         const embed = new Discord.RichEmbed()
-            embed.setTitle(`${name} is starting in 5 minutes.`)
-            embed.setFooter('Powered by https://hypixel.inventivetalent.org/')
-    
+        embed.setTitle(`${name} is starting in 5 minutes.`)
+        embed.setFooter('Powered by https://hypixel.inventivetalent.org/')
+
+        let role = "";
+
+        switch (key) {
+            case "magmaBoss":
+                role = magmaBoss;
+                break;
+            case "darkAuction":
+                role = darkAuction;
+                break;
+            case "bankInterest":
+                role = bankInterest;
+                break;
+            case "newYear":
+                role = newYear;
+                break;
+            case "zoo":
+                role = zoo;
+                break;
+            case "spookyFestival":
+                role = spookyFestival;
+                break;
+            case "winterEvent":
+                role = winterEvent;
+                break;
+            case "jerryWorkshopEvent":
+                role = jerryWorkshopEvent;
+                break;
+        }
+
+        client.guilds.get(TARGET_GUILD).channels.get(TARGET_CHANNEL).send(`<@${role}>`);
         client.guilds.get(TARGET_GUILD).channels.get(TARGET_CHANNEL).send(embed);
     });
 }
@@ -96,7 +135,6 @@ const getAllTimers = async () => {
     times.set("zoo", await getZoo());
     times.set("spookyFestival", await getSpookyFestival());
     times.set("winterEvent", await getWinterEvent());
-    times.set("darkAuction", await getDarkAuction());
     times.set("jerryWorkshopEvent", await getJerryEvent());
 
     const allTimes = Array.from(times).map(t => ({ key: t[0], ...t[1] }));
