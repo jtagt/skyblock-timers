@@ -86,7 +86,7 @@ const setupTimer = (name, key, timestamp) => {
 
     const date = new Date(timestamp - 300000);
 
-    if (timestamp - 300000 < Date.now()) return;
+    if (timestamp - 300000 < Date.now()) return timers = timers.filter(t => t !== key);
 
     schedule.scheduleJob(date, () => {
         timers = timers.filter(t => t !== key);
