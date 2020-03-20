@@ -1,2 +1,2 @@
 # timer-bot
- Hypixel Auction Timer Bot
+ Hypixel Skyblock Timer Bot
